@@ -318,7 +318,52 @@ function animateCounters() {
 // Start animation when page loads
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(animateCounters, 1000); // Start after 1 second delay
+    
+    // Services carousel event listeners
+    const nextBtn = document.getElementById('nextService');
+    const prevBtn = document.getElementById('prevService');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (nextBtn) nextBtn.addEventListener('click', nextServiceSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevServiceSlide);
+    
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentServiceSlide = index;
+            showServiceSlide(currentServiceSlide);
+        });
+    });
+    
+    // Auto-rotate carousel every 5 seconds
+    setInterval(nextServiceSlide, 5000);
 });
+
+// Services Carousel
+let currentServiceSlide = 0;
+const totalServiceSlides = 3;
+
+function showServiceSlide(slideIndex) {
+    const slides = document.querySelectorAll('.services-slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Add active class to current slide and dot
+    slides[slideIndex].classList.add('active');
+    dots[slideIndex].classList.add('active');
+}
+
+function nextServiceSlide() {
+    currentServiceSlide = (currentServiceSlide + 1) % totalServiceSlides;
+    showServiceSlide(currentServiceSlide);
+}
+
+function prevServiceSlide() {
+    currentServiceSlide = (currentServiceSlide - 1 + totalServiceSlides) % totalServiceSlides;
+    showServiceSlide(currentServiceSlide);
+}
 
 
 // Add CSS animations
