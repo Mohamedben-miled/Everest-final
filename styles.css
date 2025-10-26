@@ -470,84 +470,11 @@ html, body {
     font-size: var(--font-size-lg);
 }
 
-/* Hero Action Cards */
-.hero-action-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-6);
-    margin-top: var(--spacing-12);
-    position: relative;
-    z-index: 5;
-}
-
-.hero-action-card {
-    background: rgba(255, 255, 255, 0.95);
-    padding: var(--spacing-5);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-    text-align: center;
-}
-
-.hero-action-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-.hero-action-card .action-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--primary-color);
-    border-radius: var(--radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto var(--spacing-3);
-}
-
-.hero-action-card .action-icon i {
-    font-size: var(--font-size-xl);
-    color: var(--white);
-}
-
-.hero-action-card h3 {
-    font-size: var(--font-size-lg);
-    font-weight: 700;
-    color: var(--gray-900);
-    margin-bottom: var(--spacing-3);
-}
-
-.hero-action-card p {
-    font-size: var(--font-size-sm);
-    color: var(--gray-600);
-    line-height: 1.5;
-    margin-bottom: var(--spacing-4);
-}
-
-.hero-action-card .action-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    background: var(--primary-color);
-    color: var(--white);
-    border-radius: var(--radius-full);
-    transition: all 0.3s ease;
-}
-
-.hero-action-card .action-link:hover {
-    background: var(--primary-light);
-    transform: scale(1.05);
-}
-
 .hero-cta {
     display: flex;
     gap: var(--spacing-4);
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: var(--spacing-6);
 }
 
 .btn-large {
