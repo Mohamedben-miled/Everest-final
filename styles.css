@@ -1546,6 +1546,56 @@ html, body {
     .whatsapp-float i {
         font-size: var(--font-size-2xl);
     }
+    
+    /* Mobile Optimizations for Index Page */
+    .trust-indicators .trust-logos {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+    }
+    
+    .services-preview .services-carousel-container {
+        padding: 0 var(--spacing-3);
+    }
+    
+    .services-preview .service-card {
+        min-width: 280px;
+    }
+    
+    .about-preview-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-8);
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-steps {
+        flex-direction: column;
+        gap: var(--spacing-6);
+    }
+    
+    .process-step {
+        text-align: center;
+    }
+    
+    .contact-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-card {
+        width: 100%;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--spacing-8);
+    }
+    
+    .footer-section ul {
+        align-items: center;
+    }
 }
 
 @media (max-width: 768px) {
