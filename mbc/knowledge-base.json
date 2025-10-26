@@ -1,0 +1,241 @@
+{
+  "services": {
+    "expertise_comptable": {
+      "title": "Expertise Comptable",
+      "description": "Sortez du chaos administratif avec une gestion comptable claire et organisée",
+      "details": "Notre service d'expertise comptable couvre tous les aspects de la gestion comptable de votre entreprise. Nous nous occupons de la tenue de comptabilité, de l'établissement des bilans et liasses fiscales, et de la gestion de toutes vos obligations comptables. Nos experts-comptables vous accompagnent pour une gestion claire, organisée et conforme à la législation française.",
+      "features": [
+        "Tenue de comptabilité complète",
+        "Établissement des bilans annuels",
+        "Préparation des liasses fiscales",
+        "Gestion des obligations comptables",
+        "Conseil en organisation comptable",
+        "Formation de vos équipes"
+      ],
+      "keywords": ["comptabilité", "comptable", "bilan", "liasse", "tenue", "gestion", "obligations", "expertise"]
+    },
+    "fiscalite": {
+      "title": "Fiscalité",
+      "description": "Naviguez sereinement dans le labyrinthe fiscal français",
+      "details": "Notre service de fiscalité vous accompagne dans toutes vos démarches fiscales. Nous gérons vos déclarations TVA, optimisons votre situation fiscale, et vous conseillons sur les meilleures stratégies pour réduire vos impôts légalement. Notre expertise vous permet de naviguer sereinement dans le complexe système fiscal français.",
+      "features": [
+        "Déclarations TVA mensuelles/trimestrielles",
+        "Optimisation fiscale légale",
+        "Conseils en matière d'impôts",
+        "Gestion des crédits d'impôt",
+        "Accompagnement lors des contrôles",
+        "Veille fiscale et réglementaire"
+      ],
+      "keywords": ["fiscalité", "fiscal", "tva", "impôt", "déclaration", "optimisation", "crédit", "contrôle"]
+    },
+    "social_paie": {
+      "title": "Social & Paie",
+      "description": "Simplifiez la gestion de vos obligations sociales et salariales",
+      "details": "Notre service social et paie prend en charge toutes vos obligations en matière de gestion du personnel. Nous établissons les bulletins de paie, gérons les déclarations sociales, calculons les charges, et nous assurons de votre conformité avec la législation du travail. Une gestion simplifiée et sans erreur de vos ressources humaines.",
+      "features": [
+        "Établissement des bulletins de paie",
+        "Gestion des charges sociales",
+        "Déclarations sociales (DSN)",
+        "Gestion des congés et absences",
+        "Conformité législation du travail",
+        "Accompagnement RH"
+      ],
+      "keywords": ["social", "paie", "salaire", "charges", "bulletin", "dsn", "rh", "personnel", "congés"]
+    },
+    "conseil": {
+      "title": "Conseil",
+      "description": "Construisez votre succès avec un accompagnement stratégique personnalisé",
+      "details": "Notre service de conseil vous accompagne dans la création et le développement de votre entreprise. Nous vous conseillons sur le choix du statut juridique, l'optimisation de votre structure, la stratégie business, et l'accompagnement personnalisé pour faire grandir votre projet. Un partenaire de confiance pour votre réussite entrepreneuriale.",
+      "features": [
+        "Création d'entreprise",
+        "Choix du statut juridique",
+        "Accompagnement stratégique",
+        "Optimisation de structure",
+        "Développement business",
+        "Conseil personnalisé"
+      ],
+      "keywords": ["conseil", "conseils", "création", "entreprise", "statut", "juridique", "stratégie", "business", "accompagnement"]
+    }
+  },
+  "topics": {
+    "tva": {
+      "title": "TVA (Taxe sur la Valeur Ajoutée)",
+      "description": "La TVA est un impôt indirect sur la consommation",
+      "details": "La TVA (Taxe sur la Valeur Ajoutée) est un impôt indirect qui s'applique sur la plupart des biens et services consommés en France. Elle représente environ 20% du prix de vente pour le taux normal. Les entreprises collectent la TVA sur leurs ventes et peuvent récupérer la TVA payée sur leurs achats. La différence entre TVA collectée et TVA déductible est reversée à l'État.",
+      "rates": {
+        "normal": "20% - Taux normal pour la plupart des biens et services",
+        "intermediaire": "10% - Restauration, transports, travaux d'amélioration du logement",
+        "reduit": "5,5% - Produits alimentaires, livres, médicaments",
+        "particulier": "2,1% - Presse, médicaments remboursables"
+      },
+      "obligations": [
+        "Déclaration mensuelle si CA > 4,3M€",
+        "Déclaration trimestrielle si CA entre 152 500€ et 4,3M€",
+        "Déclaration annuelle si CA < 152 500€",
+        "Paiement dans les délais",
+        "Conservation des justificatifs 6 ans"
+      ],
+      "keywords": ["tva", "taxe", "valeur", "ajoutée", "déclaration", "collectée", "déductible", "taux", "reversement"]
+    },
+    "sarl": {
+      "title": "SARL (Société à Responsabilité Limitée)",
+      "description": "Forme juridique populaire pour les PME",
+      "details": "La SARL est une société commerciale dont la responsabilité des associés est limitée à leurs apports. Elle nécessite au minimum 2 associés (ou 1 en EURL) et un capital minimum de 1€. Les associés ne sont responsables des dettes sociales qu'à hauteur de leurs apports. La SARL est soumise à l'impôt sur les sociétés et les bénéfices sont distribués sous forme de dividendes.",
+      "avantages": [
+        "Responsabilité limitée aux apports",
+        "Capital social flexible (minimum 1€)",
+        "Statut social du dirigeant",
+        "Facilité de transmission",
+        "Crédibilité auprès des partenaires"
+      ],
+      "inconvenients": [
+        "Formalités de création",
+        "Coûts de constitution",
+        "Obligations comptables",
+        "Fiscalité des dividendes",
+        "Rigidité statutaire"
+      ],
+      "keywords": ["sarl", "société", "responsabilité", "limitée", "associés", "capital", "apports", "dividendes"]
+    },
+    "sas": {
+      "title": "SAS (Société par Actions Simplifiée)",
+      "description": "Forme juridique flexible pour les entrepreneurs",
+      "details": "La SAS est une société commerciale par actions offrant une grande flexibilité dans son organisation. Elle nécessite au minimum 2 associés (ou 1 en SASU) et un capital minimum de 1€. Les statuts sont libres et peuvent être adaptés aux besoins spécifiques du projet. Le président de SAS a le statut d'assimilé salarié.",
+      "avantages": [
+        "Grande flexibilité statutaire",
+        "Statut social avantageux",
+        "Responsabilité limitée",
+        "Facilité de transmission",
+        "Possibilité d'émission d'actions"
+      ],
+      "inconvenients": [
+        "Formalités de création",
+        "Coûts de constitution",
+        "Obligations comptables",
+        "Fiscalité des dividendes",
+        "Complexité statutaire"
+      ],
+      "keywords": ["sas", "société", "actions", "simplifiée", "sasu", "président", "statuts", "flexibilité"]
+    },
+    "auto_entrepreneur": {
+      "title": "Auto-entrepreneur (Micro-entreprise)",
+      "description": "Statut simplifié pour débuter une activité",
+      "details": "Le statut auto-entrepreneur (officiellement micro-entreprise) permet de créer facilement une activité indépendante. Il n'y a pas de capital minimum, les formalités sont simplifiées, et la comptabilité est allégée. Les revenus sont imposés au micro-fiscal et les cotisations sociales sont calculées sur le chiffre d'affaires réel.",
+      "avantages": [
+        "Formalités simplifiées",
+        "Pas de capital minimum",
+        "Comptabilité allégée",
+        "Cotisations sur CA réel",
+        "Démarrage rapide"
+      ],
+      "inconvenients": [
+        "Plafonds de chiffre d'affaires",
+        "Pas de déduction des charges",
+        "Statut social limité",
+        "Difficulté d'embauche",
+        "Crédibilité limitée"
+      ],
+      "plafonds": {
+        "vente": "176 700€ par an",
+        "prestation": "72 600€ par an",
+        "mixte": "176 700€ avec max 72 600€ de prestations"
+      },
+      "keywords": ["auto-entrepreneur", "micro-entreprise", "micro", "simplifié", "plafond", "cotisations", "chiffre", "affaires"]
+    },
+    "charges_sociales": {
+      "title": "Charges Sociales",
+      "description": "Cotisations obligatoires pour la protection sociale",
+      "details": "Les charges sociales sont des cotisations obligatoires prélevées sur les salaires pour financer la protection sociale (santé, retraite, chômage, famille). Elles représentent environ 45% du salaire brut. L'employeur et le salarié contribuent chacun à leur part. Les charges sociales sont calculées sur le salaire brut et versées aux organismes de recouvrement.",
+      "types": {
+        "sante": "Assurance maladie, maternité, invalidité, décès",
+        "retraite": "Retraite de base et complémentaire",
+        "chomage": "Assurance chômage",
+        "famille": "Prestations familiales",
+        "formation": "Formation professionnelle",
+        "accidents": "Accidents du travail et maladies professionnelles"
+      },
+      "calcul": {
+        "salarie": "Environ 22% du salaire brut",
+        "employeur": "Environ 45% du salaire brut",
+        "total": "Environ 67% du salaire brut"
+      },
+      "keywords": ["charges", "sociales", "cotisations", "salaire", "brut", "net", "santé", "retraite", "chômage"]
+    },
+    "creation_entreprise": {
+      "title": "Création d'Entreprise",
+      "description": "Processus complet pour créer son entreprise en France",
+      "details": "La création d'entreprise en France implique plusieurs étapes : choix du statut juridique, rédaction des statuts, dépôt au greffe, publication au BODACC, ouverture de compte bancaire, et immatriculation. Chaque étape a ses spécificités et délais. Un accompagnement professionnel permet d'éviter les erreurs et d'optimiser la structure choisie.",
+      "etapes": [
+        "Choix du statut juridique",
+        "Rédaction des statuts",
+        "Dépôt au greffe du tribunal",
+        "Publication au BODACC",
+        "Ouverture compte bancaire",
+        "Immatriculation et démarches finales"
+      ],
+      "delais": {
+        "sarl": "2-3 semaines",
+        "sas": "2-3 semaines",
+        "auto_entrepreneur": "1-2 semaines",
+        "eurl": "2-3 semaines"
+      },
+      "keywords": ["création", "entreprise", "statut", "juridique", "statuts", "greffe", "bodacc", "immatriculation"]
+    }
+  },
+  "company": {
+    "name": "MBC",
+    "full_name": "MBC Expert-Comptable",
+    "description": "Cabinet d'expertise comptable spécialisé dans l'accompagnement des entreprises franco-maghrébines",
+    "specialization": "Accompagnement des entrepreneurs franco-maghrébins dans leurs projets d'entreprise en France",
+    "services_offered": [
+      "Expertise Comptable",
+      "Fiscalité",
+      "Social & Paie",
+      "Conseil en création d'entreprise",
+      "Simulateurs financiers"
+    ],
+    "values": [
+      "Expertise reconnue",
+      "Accompagnement personnalisé",
+      "Transparence et clarté",
+      "Innovation technologique",
+      "Relation de confiance"
+    ]
+  },
+  "simulators": {
+    "tva_calculator": {
+      "title": "Calculateur de TVA",
+      "description": "Calculez facilement la TVA sur vos factures",
+      "purpose": "Permet de calculer la TVA à ajouter ou à retirer d'un montant, selon différents taux (20%, 10%, 5.5%, 2.1%)"
+    },
+    "dividend_tax": {
+      "title": "Simulateur de fiscalité des dividendes",
+      "description": "Estimez l'impôt sur vos dividendes",
+      "purpose": "Calcule l'impôt sur les dividendes distribués par votre société"
+    },
+    "social_charges": {
+      "title": "Simulateur de charges sociales",
+      "description": "Calculez les charges sociales sur les salaires",
+      "purpose": "Estime les charges sociales employeur et salarié sur un salaire brut"
+    },
+    "per_withdrawal": {
+      "title": "Simulateur de sortie du PER",
+      "description": "Calculez les impôts sur votre retrait PER",
+      "purpose": "Estime la fiscalité lors du retrait de votre Plan d'Épargne Retraite"
+    },
+    "housing_aid": {
+      "title": "Simulateur d'aides au logement",
+      "description": "Estimez vos droits aux aides au logement",
+      "purpose": "Calcule les aides CAF et autres dispositifs d'aide au logement"
+    }
+  },
+  "contact": {
+    "phone": "Disponible sur demande",
+    "email": "contact@mbc-expertcomptable.fr",
+    "address": "France",
+    "hours": "Lundi - Vendredi : 9h - 18h",
+    "consultation": "Consultation gratuite disponible",
+    "devis": "Devis personnalisé gratuit"
+  }
+}
+
