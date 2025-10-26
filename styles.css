@@ -482,47 +482,46 @@ html, body {
 
 .hero-action-card {
     background: rgba(255, 255, 255, 0.95);
-    padding: var(--spacing-6);
-    border-radius: var(--radius-xl);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: var(--spacing-5);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     position: relative;
+    text-align: center;
 }
 
 .hero-action-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .hero-action-card .action-icon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-    border-radius: var(--radius-lg);
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    border-radius: var(--radius-full);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--spacing-4);
+    margin: 0 auto var(--spacing-3);
 }
 
 .hero-action-card .action-icon i {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl);
     color: var(--white);
 }
 
 .hero-action-card h3 {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
     font-weight: 700;
     color: var(--gray-900);
-    margin-bottom: var(--spacing-2);
+    margin-bottom: var(--spacing-3);
 }
 
 .hero-action-card p {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
     color: var(--gray-600);
-    line-height: 1.6;
+    line-height: 1.5;
     margin-bottom: var(--spacing-4);
 }
 
@@ -530,17 +529,17 @@ html, body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    width: 35px;
+    height: 35px;
+    background: var(--primary-color);
     color: var(--white);
     border-radius: var(--radius-full);
     transition: all 0.3s ease;
 }
 
 .hero-action-card .action-link:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background: var(--primary-light);
+    transform: scale(1.05);
 }
 
 .hero-cta {
@@ -1427,16 +1426,24 @@ html, body {
     }
     
     .hero-action-card {
-        padding: var(--spacing-5);
+        padding: var(--spacing-4);
     }
     
     .hero-action-card .action-icon {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .hero-action-card .action-icon i {
+        font-size: var(--font-size-lg);
     }
     
     .hero-action-card h3 {
-        font-size: var(--font-size-lg);
+        font-size: var(--font-size-base);
+    }
+    
+    .hero-action-card p {
+        font-size: var(--font-size-xs);
     }
     
     .about-stats {
