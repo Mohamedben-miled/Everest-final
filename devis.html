@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devis Gratuit - EVEREST AUDIT & CONSULTING</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Demandez votre devis gratuit en moins de 12h. EVEREST AUDIT & CONSULTING vous propose des tarifs transparents pour tous vos besoins comptables.">
+    <meta name="keywords" content="devis gratuit, expert comptable, comptabilité, tarifs, EVEREST">
+    <meta name="author" content="EVEREST AUDIT & CONSULTING">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html#accueil" aria-label="EVEREST AUDIT & CONSULTING - Retour à l'accueil">
+                        <div class="logo-text">EVEREST AUDIT & CONSULTING</div>
+                        <div class="logo-subtitle" style="font-size: 0.7rem; margin-top: 4px; opacity: 0.9;">Société d'expertise comptable<br>Inscrite au tableau de l'Ordre des Experts Comptables de Tunisie depuis 2012</div>
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="nav" role="navigation" aria-label="Navigation principale">
+                    <ul class="nav-list">
+                        <li><a href="index.html#accueil" class="nav-link">Accueil</a></li>
+                        <li><a href="everest.html" class="nav-link">Everest</a></li>
+                        <li><a href="services.html" class="nav-link">Prestations</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Header Utils -->
+                <div class="header-utils">
+                    <select class="language-selector" aria-label="Sélectionner la langue">
+                        <option value="fr">FR</option>
+                        <option value="en">EN</option>
+                    </select>
+                    <button class="mobile-menu-toggle" aria-label="Ouvrir le menu mobile">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main role="main">
+    <style>
+        body {
+            background: var(--gray-50);
+        }
+        
+        .devis-container {
+            max-width: 800px;
+            margin: 120px auto 60px;
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(10px) !important;
+            border-bottom: 1px solid var(--gray-200) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .header .logo-text {
+            color: var(--primary-color) !important;
+            text-shadow: none !important;
+        }
+        
+        .header .nav-link {
+            color: var(--gray-700) !important;
+            text-shadow: none !important;
+        }
+        
+        .header .nav-link:hover,
+        .header .nav-link.active {
+            color: var(--primary-color) !important;
+            background-color: var(--gray-50) !important;
+        }
+        
+        .header .language-selector {
+            border: 1px solid var(--gray-300) !important;
+            background: var(--white) !important;
+            color: var(--gray-700) !important;
+        }
+        
+        .header .mobile-menu-toggle {
+            color: var(--gray-700) !important;
+        }
+        
+        .devis-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .devis-header h1 {
+            font-size: 2.5rem;
+            color: #2c5aa0;
+            margin-bottom: 10px;
+        }
+        
+        .devis-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .form-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .form-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e0e0e0;
+            z-index: 0;
+        }
+        
+        .step-indicator {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            color: #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .step-indicator.active .step-circle {
+            background: #2c5aa0;
+            color: white;
+        }
+        
+        .step-indicator.completed .step-circle {
+            background: #10b981;
+            color: white;
+        }
+        
+        .step-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .step-indicator.active .step-label {
+            color: #2c5aa0;
+            font-weight: 600;
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2c5aa0;
+            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .service-checkbox {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .service-checkbox:hover {
+            border-color: #2c5aa0;
+            background: rgba(44, 90, 160, 0.05);
+        }
+        
+        .service-checkbox input[type="checkbox"] {
+            width: auto;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+        
+        .service-checkbox input[type="checkbox"]:checked + label {
+            color: #2c5aa0;
+            font-weight: 600;
+        }
+        
+        .service-checkbox.checked {
+            border-color: #2c5aa0;
+            background: rgba(44, 90, 160, 0.1);
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #2c5aa0;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1e3f73;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 90, 160, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .required {
+            color: #ef4444;
+        }
+        
+        .success-message {
+            text-align: center;
+            padding: 60px 20px;
+            display: none;
+        }
+        
+        .success-message.active {
+            display: block;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #10b981;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
+        }
+        
+        .success-message h2 {
+            color: #2c5aa0;
+            margin-bottom: 20px;
+        }
+        
+        .success-message p {
+            color: #666;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html#accueil" aria-label="EVEREST AUDIT & CONSULTING - Retour à l'accueil">
+                        <div class="logo-text">EVEREST AUDIT & CONSULTING</div>
+                        <div class="logo-subtitle" style="font-size: 0.7rem; margin-top: 4px; opacity: 0.9;">Société d'expertise comptable<br>Inscrite au tableau de l'Ordre des Experts Comptables de Tunisie depuis 2012</div>
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="nav" role="navigation" aria-label="Navigation principale">
+                    <ul class="nav-list">
+                        <li><a href="index.html#accueil" class="nav-link">Accueil</a></li>
+                        <li><a href="everest.html" class="nav-link">Everest</a></li>
+                        <li><a href="services.html" class="nav-link">Prestations</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Header Utils -->
+                <div class="header-utils">
+                    <select class="language-selector" aria-label="Sélectionner la langue">
+                        <option value="fr">FR</option>
+                        <option value="en">EN</option>
+                    </select>
+                    <button class="mobile-menu-toggle" aria-label="Ouvrir le menu mobile">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main role="main">
+        <div class="container">
+            <div class="devis-container">
+                <div class="devis-header">
+                    <h1>Demande de Devis Gratuit</h1>
+                    <p>Réponse en moins de 12h</p>
+                </div>
+
+                <!-- Form Steps Indicator -->
+                <div class="form-steps">
+                    <div class="step-indicator active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <div class="step-label">Informations</div>
+                    </div>
+                    <div class="step-indicator" data-step="2">
+                        <div class="step-circle">2</div>
+                        <div class="step-label">Prestations</div>
+                    </div>
+                    <div class="step-indicator" data-step="3">
+                        <div class="step-circle">3</div>
+                        <div class="step-label">Contact</div>
+                    </div>
+                </div>
+
+                <!-- Success Message -->
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h2>Merci pour votre demande !</h2>
+                    <p>
+                        Bonjour,<br><br>
+                        Nous sommes heureux de vous accueillir chez EVEREST Audit et Consulting.<br>
+                        Votre demande a été prise en charge.<br>
+                        Un devis personnalisé vous sera envoyé sous 24h ou un collaborateur vous contactera pour compléter votre demande.
+                    </p>
+                </div>
+
+                <!-- Form -->
+                <form id="devisForm" class="devis-form">
+                    <!-- Step 1: Company Information -->
+                    <div class="form-step active" data-step="1">
+                        <h2 style="margin-bottom: 30px; color: #2c5aa0;">Informations sur votre entreprise</h2>
+                        
+                        <div class="form-group">
+                            <label for="legalStatus">Statut Juridique <span class="required">*</span></label>
+                            <select id="legalStatus" name="legalStatus" required>
+                                <option value="">Sélectionnez un statut</option>
+                                <option value="en-creation">En cours de création</option>
+                                <option value="startup-labelisee-non-creee">Startup labélisée non créée</option>
+                                <option value="startup-labelisee-creee">Startup labélisée et créée</option>
+                                <option value="entreprise-individuelle">Entreprise individuelle</option>
+                                <option value="micro-entrepreneur">Micro-entrepreneur</option>
+                                <option value="suarl">SUARL</option>
+                                <option value="sarl">SARL</option>
+                                <option value="sa">SA</option>
+                                <option value="profession-liberale">Profession Libérale (Médecin, laboratoire, pharmacie, avocat, architecte…)</option>
+                                <option value="association">Association</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="autreStatusGroup" style="display: none;">
+                            <label for="autreStatus">Précisez votre statut</label>
+                            <input type="text" id="autreStatus" name="autreStatus" placeholder="Votre statut juridique">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="activity">Activité <span class="required">*</span></label>
+                            <select id="activity" name="activity" required>
+                                <option value="">Sélectionnez une activité</option>
+                                <option value="commerce">Commerce</option>
+                                <option value="services">Prestations</option>
+                                <option value="industrie">Industrie</option>
+                                <option value="batiment">Bâtiment / Construction</option>
+                                <option value="transport">Transport / Logistique</option>
+                                <option value="hotellerie">Hôtellerie / Restauration</option>
+                                <option value="sante">Santé / Paramédical</option>
+                                <option value="juridique">Juridique</option>
+                                <option value="conseil">Conseil / Expertise</option>
+                                <option value="informatique">Informatique / Digital</option>
+                                <option value="communication">Communication / Marketing</option>
+                                <option value="immobilier">Immobilier</option>
+                                <option value="agriculture">Agriculture</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="revenue">Chiffre d'affaires annuel (en Dinars) <span class="required">*</span></label>
+                            <select id="revenue" name="revenue" required>
+                                <option value="">Sélectionnez une tranche</option>
+                                <option value="0-50000">0 - 50 000 DT</option>
+                                <option value="50000-100000">50 000 - 100 000 DT</option>
+                                <option value="100000-250000">100 000 - 250 000 DT</option>
+                                <option value="250000-500000">250 000 - 500 000 DT</option>
+                                <option value="500000-1000000">500 000 - 1 000 000 DT</option>
+                                <option value="1000000+">Plus de 1 000 000 DT</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="employees">Nombre de salariés <span class="required">*</span></label>
+                            <select id="employees" name="employees" required>
+                                <option value="">Sélectionnez une option</option>
+                                <option value="0">0 (Dirigeant seul)</option>
+                                <option value="1-5">1 à 5</option>
+                                <option value="6-10">6 à 10</option>
+                                <option value="11-20">11 à 20</option>
+                                <option value="21-50">21 à 50</option>
+                                <option value="50+">Plus de 50</option>
+                            </select>
+                        </div>
+
+                        <div class="form-actions">
+                            <div></div>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">Suivant <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Services Selection -->
+                    <div class="form-step" data-step="2">
+                        <h2 style="margin-bottom: 30px; color: #2c5aa0;">Sélectionnez vos besoins</h2>
+                        <p style="margin-bottom: 20px; color: #666;">Vous pouvez sélectionner une ou plusieurs prestations :</p>
+                        
+                        <div class="services-grid">
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-audit" name="services" value="Audit">
+                                <label for="service-audit">Audit</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-comptabilite" name="services" value="Comptabilité">
+                                <label for="service-comptabilite">Comptabilité</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-conseil-juridique" name="services" value="Conseil Juridique">
+                                <label for="service-conseil-juridique">Conseil Juridique</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-conseil-social" name="services" value="Conseil Social">
+                                <label for="service-conseil-social">Conseil Social</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-conseil-fiscal" name="services" value="Conseil Fiscal">
+                                <label for="service-conseil-fiscal">Conseil Fiscal</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-formation" name="services" value="Formation">
+                                <label for="service-formation">Formation</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-coaching" name="services" value="Coaching d'entrepreneurs et de startup">
+                                <label for="service-coaching">Coaching d'entrepreneurs et de startup</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-labelisation" name="services" value="Labélisation Startup' Act">
+                                <label for="service-labelisation">Labélisation Startup' Act</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-etude-projet" name="services" value="Etude de projets et Business Plan">
+                                <label for="service-etude-projet">Etude de projets et Business Plan</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-montage-financier" name="services" value="Montage financier et levée de fonds">
+                                <label for="service-montage-financier">Montage financier et levée de fonds</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-creation-societe" name="services" value="Création de sociétés avec prise en charge intégrale des démarches">
+                                <label for="service-creation-societe">Création de sociétés avec prise en charge intégrale des démarches</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-domiciliation" name="services" value="Domiciliation d'entreprises et Freelancer">
+                                <label for="service-domiciliation">Domiciliation d'entreprises et Freelancer</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-social" name="services" value="Social (Fiches de paies / contrats de travail)">
+                                <label for="service-social">Social (Fiches de paies / contrats de travail)</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-recrutement" name="services" value="Recrutement de talents et personnes clés">
+                                <label for="service-recrutement">Recrutement de talents et personnes clés</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-reporting" name="services" value="Reporting financier">
+                                <label for="service-reporting">Reporting financier</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-daf" name="services" value="Directeur ou Responsable Financier à distance">
+                                <label for="service-daf">Directeur ou Responsable Financier à distance</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-entreprise-france" name="services" value="Créer son entreprise en France">
+                                <label for="service-entreprise-france">Créer son entreprise en France</label>
+                            </div>
+                            <div class="service-checkbox">
+                                <input type="checkbox" id="service-visa" name="services" value="Visa de séjour en France">
+                                <label for="service-visa">Visa de séjour en France</label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Précédent</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">Suivant <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Contact Information -->
+                    <div class="form-step" data-step="3">
+                        <h2 style="margin-bottom: 30px; color: #2c5aa0;">Vos coordonnées</h2>
+                        
+                        <div class="form-group">
+                            <label for="firstName">Prénom <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Nom <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Téléphone <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Nom de l'entreprise</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message (optionnel)</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Décrivez votre projet ou vos besoins spécifiques..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Précédent</button>
+                            <button type="submit" class="btn btn-primary">Envoyer la demande <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-text">EVEREST AUDIT & CONSULTING</div>
+                        <p>Société d'expertise comptable<br>Inscrite au tableau de l'Ordre des Experts Comptables de Tunisie depuis 2012</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Prestations</h4>
+                    <ul>
+                        <li><a href="services.html">Audit</a></li>
+                        <li><a href="services.html">Comptabilité</a></li>
+                        <li><a href="services.html">Conseil</a></li>
+                        <li><a href="services.html">Formation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html#accueil">Accueil</a></li>
+                        <li><a href="everest.html">À propos</a></li>
+                        <li><a href="services.html">Prestations</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+21620448160">+216 20 448 160</a><br><a href="tel:+33676570097">+33 06 76 57 00 97</a></li>
+                        <li><a href="mailto:majdi.besbes@gmail.com">majdi.besbes@gmail.com</a></li>
+                        <li>Résidence Rania-App.B05-Premier étage<br>Av. Mongi Slim- 2045-L'Aouina</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EVEREST AUDIT ET CONSULTING. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/73470250/admin/dashboard/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://wa.me/21620448160" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/EVERESTAUDIT/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        // Handle "Autre" status
+        document.getElementById('legalStatus').addEventListener('change', function() {
+            const autreGroup = document.getElementById('autreStatusGroup');
+            if (this.value === 'autre') {
+                autreGroup.style.display = 'block';
+                document.getElementById('autreStatus').required = true;
+            } else {
+                autreGroup.style.display = 'none';
+                document.getElementById('autreStatus').required = false;
+            }
+        });
+
+        // Service checkboxes styling
+        document.querySelectorAll('.service-checkbox input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    this.closest('.service-checkbox').classList.add('checked');
+                } else {
+                    this.closest('.service-checkbox').classList.remove('checked');
+                }
+            });
+        });
+
+        function updateStepIndicator() {
+            document.querySelectorAll('.step-indicator').forEach((indicator, index) => {
+                const stepNum = index + 1;
+                indicator.classList.remove('active', 'completed');
+                if (stepNum < currentStep) {
+                    indicator.classList.add('completed');
+                } else if (stepNum === currentStep) {
+                    indicator.classList.add('active');
+                }
+            });
+        }
+
+        function nextStep() {
+            const currentStepElement = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+            const inputs = currentStepElement.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = '#ef4444';
+                } else {
+                    input.style.borderColor = '#e0e0e0';
+                }
+            });
+
+            // Check if at least one service is selected in step 2
+            if (currentStep === 2) {
+                const services = document.querySelectorAll('input[name="services"]:checked');
+                if (services.length === 0) {
+                    isValid = false;
+                    alert('Veuillez sélectionner au moins un service.');
+                }
+            }
+
+            if (isValid && currentStep < totalSteps) {
+                currentStepElement.classList.remove('active');
+                currentStep++;
+                document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+                updateStepIndicator();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+                currentStep--;
+                document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+                updateStepIndicator();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Form submission
+        document.getElementById('devisForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                if (key === 'services') {
+                    if (!data[key]) data[key] = [];
+                    data[key].push(value);
+                } else {
+                    data[key] = value;
+                }
+            });
+
+            // Here you would normally send the data to a server
+            // For now, we'll simulate a successful submission
+            console.log('Form data:', data);
+            
+            // Show success message
+            document.querySelector('.devis-form').style.display = 'none';
+            document.querySelector('.form-steps').style.display = 'none';
+            document.getElementById('successMessage').classList.add('active');
+            
+            // In a real implementation, you would send an email here
+            // using a service like EmailJS, Formspree, or your own backend
+        });
+    </script>
+</body>
+</html>
+

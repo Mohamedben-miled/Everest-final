@@ -131,7 +131,10 @@ class MobileMenu {
         
         if (this.menuToggle) {
             this.menuToggle.setAttribute('aria-expanded', 'false');
-            this.menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            this.menuToggle.setAttribute('aria-label', 'Ouvrir le menu mobile');
+            if (!this.menuToggle.innerHTML.includes('fa-bars') && !this.menuToggle.innerHTML.includes('fa-times')) {
+                this.menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
             console.log('Mobile menu toggle found and initialized');
         } else {
             console.error('Mobile menu toggle not found');
@@ -145,13 +148,23 @@ class MobileMenu {
     }
 
     bindEvents() {
-        if (!this.menuToggle) return;
+        if (!this.menuToggle) {
+            console.error('Menu toggle not found, cannot bind events');
+            return;
+        }
 
-        this.menuToggle.addEventListener('click', () => this.toggle());
+        this.menuToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Menu toggle clicked');
+            this.toggle();
+        });
         
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (this.isOpen && !e.target.closest('.header-content')) {
+            if (this.isOpen && 
+                !e.target.closest('.header-content') && 
+                !e.target.closest('.nav-list')) {
                 this.close();
             }
         });
@@ -168,7 +181,7 @@ class MobileMenu {
             const navLinks = this.navList.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    this.close();
+                    setTimeout(() => this.close(), 100);
                 });
             });
         }
@@ -181,26 +194,51 @@ class MobileMenu {
 
     open() {
         console.log('Opening mobile menu');
+        if (!this.menuToggle) {
+            console.error('Menu toggle not found');
+            return;
+        }
+        
+        if (!this.navList) {
+            console.error('Nav list not found');
+            return;
+        }
+        
         this.isOpen = true;
         this.menuToggle.setAttribute('aria-expanded', 'true');
-        this.menuToggle.setAttribute('aria-label', 'Close menu');
+        this.menuToggle.setAttribute('aria-label', 'Fermer le menu mobile');
         this.menuToggle.innerHTML = '<i class="fas fa-times"></i>';
         this.menuToggle.classList.add('active');
         
-        if (this.navList) {
-            this.navList.classList.add('mobile-open');
-            console.log('Added mobile-open class to nav-list');
-        }
+        // Add mobile-open class
+        this.navList.classList.add('mobile-open');
+        console.log('Added mobile-open class to nav-list', this.navList.classList);
+        console.log('Nav list element:', this.navList);
+        console.log('Nav list computed style:', window.getComputedStyle(this.navList));
         
         // Prevent body scroll
         document.body.classList.add('mobile-menu-open');
+        
+        // Force a reflow to ensure the class is applied
+        void this.navList.offsetHeight;
+        
+        // Double check after a small delay
+        setTimeout(() => {
+            if (this.navList.classList.contains('mobile-open')) {
+                console.log('Menu should be visible now');
+            } else {
+                console.error('Mobile-open class was removed!');
+            }
+        }, 100);
     }
 
     close() {
         console.log('Closing mobile menu');
+        if (!this.menuToggle) return;
+        
         this.isOpen = false;
         this.menuToggle.setAttribute('aria-expanded', 'false');
-        this.menuToggle.setAttribute('aria-label', 'Open menu');
+        this.menuToggle.setAttribute('aria-label', 'Ouvrir le menu mobile');
         this.menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
         this.menuToggle.classList.remove('active');
         
@@ -488,10 +526,23 @@ class StatisticsCounter {
     }
 
     animateCounter(element) {
-        const target = parseInt(element.textContent.replace(/[^\d]/g, ''));
+        const originalText = element.textContent.trim();
+        const target = parseInt(originalText.replace(/[^\d]/g, ''));
         const duration = 2000; // 2 seconds
         const increment = target / (duration / 16); // 60fps
         let current = 0;
+
+        // Detect format from original text
+        let prefix = '';
+        let suffix = '';
+        if (originalText.includes('+')) {
+            prefix = '+';
+        }
+        if (originalText.includes('%')) {
+            suffix = '%';
+        } else if (originalText.includes('h')) {
+            suffix = 'h';
+        }
 
         const timer = setInterval(() => {
             current += increment;
@@ -500,14 +551,16 @@ class StatisticsCounter {
                 clearInterval(timer);
             }
             
-            // Format number with appropriate suffix
+            // Format number preserving original format
             let displayValue = Math.floor(current);
-            if (target >= 1000) {
-                displayValue = (displayValue / 1000).toFixed(1) + 'K+';
-            } else if (target >= 100) {
-                displayValue = displayValue + '%';
+            if (suffix === '%') {
+                displayValue = prefix + displayValue + suffix;
+            } else if (suffix === 'h') {
+                displayValue = displayValue + suffix;
+            } else if (prefix === '+') {
+                displayValue = prefix + displayValue;
             } else {
-                displayValue = displayValue + '+';
+                displayValue = displayValue.toString();
             }
             
             element.textContent = displayValue;
@@ -595,49 +648,9 @@ class MobileMenuStyles {
     }
 
     init() {
-        // Add mobile menu styles dynamically
-        const style = document.createElement('style');
-        style.textContent = `
-            @media (max-width: 768px) {
-                .nav-list {
-                    position: fixed;
-                    top: 80px;
-                    left: 0;
-                    right: 0;
-                    background: white;
-                    flex-direction: column;
-                    padding: 20px;
-                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-                    transform: translateY(-100%);
-                    opacity: 0;
-                    visibility: hidden;
-                    transition: all 0.3s ease-in-out;
-                    z-index: 1000;
-                }
-                
-                .nav-list.mobile-open {
-                    transform: translateY(0);
-                    opacity: 1;
-                    visibility: visible;
-                }
-                
-                .nav-list li {
-                    margin: 10px 0;
-                }
-                
-                .nav-link {
-                    display: block;
-                    padding: 15px 20px;
-                    border-radius: 8px;
-                    font-size: 18px;
-                }
-                
-                .mobile-menu-open {
-                    overflow: hidden;
-                }
-            }
-        `;
-        document.head.appendChild(style);
+        // Styles are now in the main CSS file, no need to add them dynamically
+        // This class is kept for compatibility but doesn't add styles
+        console.log('MobileMenuStyles initialized');
     }
 }
 
