@@ -27,8 +27,13 @@
                 <!-- Logo -->
                 <div class="logo">
                     <a href="index.html#accueil" aria-label="EVEREST AUDIT & CONSULTING - Retour à l'accueil">
-                        <div class="logo-text">EVEREST AUDIT & CONSULTING</div>
-                        <div class="logo-subtitle" style="font-size: 0.7rem; margin-top: 4px; opacity: 0.9;">Société d'expertise comptable<br>Inscrite au tableau de l'Ordre des Experts Comptables de Tunisie depuis 2012</div>
+                        <div class="logo-mark">
+                            <img src="logo.png" alt="EVEREST AUDIT & CONSULTING" class="logo-image" loading="lazy" decoding="async">
+                        </div>
+                        <div class="logo-subtitle">
+                            Société d'expertise comptable<br>
+                            Inscrite au tableau de l'Ordre des Experts Comptables de Tunisie depuis 2012
+                        </div>
                     </a>
                 </div>
 
@@ -72,6 +77,12 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
         
+        @media (max-width: 768px) {
+            .devis-container {
+                margin-top: calc(70px + 40px);
+            }
+        }
+        
         .header {
             background: rgba(255, 255, 255, 0.98) !important;
             backdrop-filter: blur(10px) !important;
@@ -79,20 +90,35 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
         }
         
-        .header .logo-text {
-            color: var(--primary-color) !important;
+        .header .logo-mark {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        
+        .header .logo-image {
+            filter: drop-shadow(0 6px 12px rgba(17, 24, 39, 0.12)) !important;
+        }
+        
+        .header .logo-subtitle {
+            color: var(--gray-600) !important;
+            border-left-color: rgba(147, 26, 17, 0.25) !important;
             text-shadow: none !important;
         }
         
         .header .nav-link {
             color: var(--gray-700) !important;
             text-shadow: none !important;
+            border-color: rgba(15, 23, 42, 0.1) !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12) !important;
         }
         
         .header .nav-link:hover,
         .header .nav-link.active {
             color: var(--primary-color) !important;
-            background-color: var(--gray-50) !important;
+            border-color: rgba(147, 26, 17, 0.35) !important;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.85)) !important;
         }
         
         .header .language-selector {
@@ -355,8 +381,13 @@
                 <!-- Logo -->
                 <div class="logo">
                     <a href="index.html#accueil" aria-label="EVEREST AUDIT & CONSULTING - Retour à l'accueil">
-                        <div class="logo-text">EVEREST AUDIT & CONSULTING</div>
-                        <div class="logo-subtitle" style="font-size: 0.7rem; margin-top: 4px; opacity: 0.9;">Société d'expertise comptable<br>Inscrite au tableau de l'Ordre des Experts Comptables de Tunisie depuis 2012</div>
+                        <div class="logo-mark">
+                            <img src="logo.png" alt="EVEREST AUDIT & CONSULTING" class="logo-image" loading="lazy" decoding="async">
+                        </div>
+                        <div class="logo-subtitle">
+                            Société d'expertise comptable<br>
+                            Inscrite au tableau de l'Ordre des Experts Comptables de Tunisie depuis 2012
+                        </div>
                     </a>
                 </div>
 
